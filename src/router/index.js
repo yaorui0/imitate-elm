@@ -33,9 +33,11 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  // linkActiveClass: 'active', //重定义router-link-active样式
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
+// router.push('/seller'); //首次进入的页面
 export default router
