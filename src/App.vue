@@ -52,6 +52,7 @@
 
 <script>
 import aHeader from "@/components/aheader/aheader.vue";
+// import Star from '@/components/star/Star.vue';
 export default {
     name: "app",
     components: {
