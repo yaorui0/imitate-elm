@@ -24,7 +24,7 @@
                 >商家</router-link>
             </div>
         </div>
-        <router-view></router-view>
+        <router-view :seller="seller"></router-view>
     </div>
 </template>
 
@@ -52,7 +52,6 @@
 
 <script>
 import aHeader from "@/components/aheader/aheader.vue";
-// import Star from '@/components/star/Star.vue';
 export default {
     name: "app",
     components: {
