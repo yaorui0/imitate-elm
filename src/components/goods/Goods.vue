@@ -36,13 +36,17 @@
                                     <span class="now">￥{{food.price}}</span>
                                     <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                                 </div>
+                                <div class="cartcontrol-wrapper">
+                                    <cartControl :food="food"></cartControl>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
-		<car :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></car>
+		<car :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></car>
+        
     </div>
 </template>
 
@@ -167,6 +171,9 @@
                         font-size: 10px;
                         color: rgb(147, 153, 159);
                     }
+                } 
+                .cartcontrol-wrapper {
+                    position: relative;
                 }
             }
         }
@@ -177,6 +184,7 @@
 <script>
 import BScroll from "better-scroll";
 import shopCar from "@/components/shopcar/Shopcar.vue";
+import cartControl from "@/components/cartControl/Carcontrol.vue";
 export default {
     props: {
         seller: {
@@ -184,7 +192,8 @@ export default {
         }
 	},
 	components: {
-		'car': shopCar
+        'car': shopCar,
+        cartControl
 	},
     data() {
         return {
@@ -209,6 +218,17 @@ export default {
                 }
             }
             return 0;
+        },
+        selectFoods() {
+            let foods =[];
+            this.goods.forEach((good)=> {
+                good.foods.forEach((food)=> {
+                    if(food.count) {
+                        foods.push(food);
+                    }
+                })
+            })
+            return foods;
         }
     },
     created() {
@@ -237,6 +257,7 @@ export default {
                 click: true
             });
             this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+                click: true,
                 probeType: 3
             });
             // 监测dom滚动的实时位置
