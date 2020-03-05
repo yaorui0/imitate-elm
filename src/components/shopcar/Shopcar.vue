@@ -228,14 +228,15 @@
     height: 100%;
     z-index: 40;
     backdrop-filter: blur(10px);
-    &.mask-enter {
-        background: rgba(7, 17, 27, 0.6);
+    &.mask-enter-to {
+        background: rgba(7, 17, 27, 0);
     }
     &.mask-enter-active {
         transition: all 1000s;
     }
-    &.mask-enter-to {
-        background: rgba(7, 17, 27, 0);
+    &.mask-enter,
+    &.mask-leave {
+        background: rgba(7, 17, 27, 0.6);
     }
 }
 </style>
@@ -326,9 +327,7 @@ export default {
                     }
                 });
             }
-            console.log(show);
             return show;
-            
         }
     },
     methods: {
