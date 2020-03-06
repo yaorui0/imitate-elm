@@ -39,5 +39,5 @@ const router = new VueRouter({
   routes
 })
 
-// router.push('/seller'); //首次进入的页面
+router.push('/goods'); //首次进入的页面
 export default router
