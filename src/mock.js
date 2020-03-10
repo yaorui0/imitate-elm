@@ -32,8 +32,7 @@ function getRatings(options) {
 		data: ratings
 	}
 }
-
-Mock.mock('/seller', 'get', getSeller);
+Mock.mock(RegExp('/seller' + ".*"), 'get', getSeller);
 Mock.mock('/goods', 'post', getGoods);
 Mock.mock('/ratings', 'get', getRatings);
 // 最后将 Mock 导出
