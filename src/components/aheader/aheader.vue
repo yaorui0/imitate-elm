@@ -328,19 +328,17 @@
             }
         }
     }
-    .fade-enter {
-        // width: 0;
-        // margin-top: 100%;
-        // margin-left: 100%;
-        background-color: rgba(7, 17, 27, 0);
-    }
-    .fade-enter-active/*定义过渡从开始到完全进入的持续时间*/ {
+    .fade-enter-active,
+    .fade-leave-active {
         transition: all 0.5s;
     }
-     .fade-enter-to {
-        // width: 100%;
-        // margin-top: 0;
-        background-color: rgba(7, 17, 27, 0.8);
+    // .fade-enter-active/*定义过渡从开始到完全进入的持续时间*/ {
+    //     transition: all 0.5s;
+    // }
+    .fade-enter,
+    .fade-leave-active {
+        opacity: 0;
+        background-color: rgba(7, 17, 27, 0);
     }
 }
 </style>
